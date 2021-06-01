@@ -24,8 +24,9 @@ public class Chat_Server extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Chatbot server");
+        setTitle("Chat server");
 
+        jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
@@ -148,7 +149,7 @@ public class Chat_Server extends javax.swing.JFrame {
             return "Im just talking to u! u should know this .. lol";
         } else if (msgIn.contains("time")) {
             LocalTime now = LocalTime.now();
-            DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+            DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("hh:mm a");
             String formattedDate = now.format(myFormatObj);
             return "Here is the current time :" + formattedDate;
         } else if (msgIn.contains("date") || msgIn.contains("today")) {

@@ -1,21 +1,23 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package guichatapplication;
 
-/**
- *
- * @author User
- */
 public class GUIChatApplication {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
+//        Thread thread1 = new Thread() {
+//            public void run() {
+//                Chat_Server server = new Chat_Server();
+//                server.setVisible(true);
+//            }
+//        };
+//        Thread thread2 = new Thread() {
+//            public void run() {
+//                Chat_Client client = new Chat_Client();
+//                client.setVisible(true);
+//            }
+//        };
+//        thread1.start();
+//        Thread.sleep(5000);
+//        thread2.start();
     }
-    
+
 }
