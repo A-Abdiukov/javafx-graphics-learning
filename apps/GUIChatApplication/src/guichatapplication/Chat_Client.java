@@ -5,7 +5,6 @@
  */
 package guichatapplication;
 
-import static guichatapplication.Chat_Server.dout;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.net.Socket;
@@ -19,10 +18,10 @@ public class Chat_Client extends javax.swing.JFrame {
     /**
      * Creates new form Chat_Client
      */
-    static Socket s ;
-    static DataInputStream din ;
+    static Socket s;
+    static DataInputStream din;
     static DataOutputStream dout;
-    
+
     public Chat_Client() {
         initComponents();
     }
@@ -85,15 +84,13 @@ public class Chat_Client extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        try
-        {
-        String msgOut="";
-        msgOut=jTextField1.getText().trim();
-        dout.writeUTF(msgOut);
-        }catch(Exception e)
-        {
+        try {
+            String msgOut = "";
+            msgOut = jTextField1.getText().trim();
+            dout.writeUTF(msgOut);
+        } catch (Exception e) {
         }
-              
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -103,7 +100,7 @@ public class Chat_Client extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -129,21 +126,19 @@ public class Chat_Client extends javax.swing.JFrame {
                 new Chat_Client().setVisible(true);
             }
         });
-        String msgIn="";
-        try{
+        String msgIn = "";
+        try {
             s = new Socket("localhost", 3333);
             din = new DataInputStream(s.getInputStream());
             dout = new DataOutputStream(s.getOutputStream());
-        while (!msgIn.equals("exit")) 
-        {
-            msgIn = din.readUTF();
-            jTextArea1.setText(jTextArea1.getText().trim()+ "\n"+msgIn);
+            while (!msgIn.equals("exit")) {
+                msgIn = din.readUTF();
+                jTextArea1.setText(jTextArea1.getText().trim() + "\n" + msgIn);
+            }
+
+        } catch (Exception e) {
         }
-       
-        }catch(Exception e)
-                {
-                }
-          
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
