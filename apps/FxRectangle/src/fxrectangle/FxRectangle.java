@@ -19,7 +19,7 @@ public class FxRectangle extends Application {
     private double stageHt, stageWd, midX, midY;
     private Scene newScene;
     private Rectangle rect;
-    Image javaIsFunImage = new Image("file:javaisfun.jpg");
+    Image javaIsFunImage = new Image("/fxrectangle/javaisfun.jpg");
 
     @Override
     public void start(Stage primaryStage) {
@@ -28,7 +28,7 @@ public class FxRectangle extends Application {
         //create a group, all GUI elements will be added to this group
         //the group is then added to primaryStage
         Group grp = new Group();
-        newScene = new Scene(grp, 450, 400, Color.ALICEBLUE);
+        newScene = new Scene(grp, 600, 600, Color.ALICEBLUE);
 
         //add event listeners to detect resizing
         newScene.widthProperty().addListener((obs, oldVal, newVal) -> {
@@ -39,10 +39,9 @@ public class FxRectangle extends Application {
         });
 
         rect = new Rectangle();
-        rect.setHeight(70);
-        rect.setWidth(250);
+        rect.setHeight(403);
+        rect.setWidth(500);
         rect.setFill(new ImagePattern(javaIsFunImage));
-        rect.setFill(Color.BLUE);
         PutRectangleInTheMiddle();
         grp.getChildren().add(rect);
         primaryStage.setScene(newScene);
