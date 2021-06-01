@@ -12,7 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Line;
+import javafx.scene.shape.*;
 import javafx.stage.Stage;
 
 /**
@@ -20,32 +20,55 @@ import javafx.stage.Stage;
  * @author shubh
  */
 public class FxLines extends Application {
+
     Line line1;
     Pane root = new Pane();
     int x1, x2, y1, y2;
     int delta = 12;
+
     @Override
     public void start(Stage primaryStage) {
-        x1 = 10; x2 = 10; y1 =100; y2 = 150;
-        Button btn = new Button();        
-        btn.setText("Draw 1 line");
-        btn.setOnAction(new EventHandler<ActionEvent>() {
+        x1 = 0;
+        x2 = 120;
+        y1 = 50;
+        y2 = 120;
+        Button BtnRectangle = new Button();
+        BtnRectangle.setText("Draw a rectangle");
+        BtnRectangle.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 x1 += delta;
-                y2 += delta;
-                Line line = new Line(x1,y1,x2,y2);
-                line.setStroke(Color.BLUE);
-                line.setStrokeWidth(2);
-                root.getChildren().add(line);
+                y1 += delta;
+                Rectangle rectangle = new Rectangle(x1, y1, 100, 100);
+                rectangle.setFill(Color.DARKCYAN);
+                rectangle.setStrokeWidth(8.0);
+                rectangle.setStroke(Color.DARKSLATEGREY);
+                root.getChildren().add(rectangle);
+
             }
-        });             
-        
-        root.setStyle("-fx-background-color: #FAEBD7");
-        root.getChildren().add(btn);
-        
+        });
+        root.getChildren().add(BtnRectangle);
+
+        Button BtnCircle = new Button();
+        BtnRectangle.setText("Draw a circle");
+        BtnRectangle.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                x1 += delta;
+                y1 += delta;
+                Rectangle rectangle = new Rectangle(x1, y1, 100, 100);
+                rectangle.setFill(Color.DARKCYAN);
+                rectangle.setStrokeWidth(8.0);
+                rectangle.setStroke(Color.DARKSLATEGREY);
+                root.getChildren().add(rectangle);
+            }
+        });
+        root.getChildren().add(BtnCircle);
+
+        root.setStyle("-fx-background-color: #a2d5c6");
+
         Scene scene = new Scene(root, 300, 500);
-        
+
         primaryStage.setTitle("Draw lines, one at a time");
         primaryStage.setScene(scene);
         primaryStage.show();
