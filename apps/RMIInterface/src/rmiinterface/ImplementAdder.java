@@ -12,12 +12,30 @@ import java.rmi.server.UnicastRemoteObject;
  *
  * @author User
  */
-public class ImplementAdder extends UnicastRemoteObject implements AdderInterface{
+public class ImplementAdder extends UnicastRemoteObject implements AdderInterface {
 
-ImplementAdder()throws RemoteException{
-super();
+    ImplementAdder() throws RemoteException {
+        super();
+    }
+
+    public int add(int x, int y) {
+        return x + y;
+    }
+
+    public int subtract(int x, int y) {
+        return x - y;
+    }
+
+    public int mulitply(int x, int y) {
+        return x * y;
+    }
+
+    public int divide(int x, int y) {
+        return x / y;
+    }
+
+    @Override
+    public int multiply(int x, int y) throws RemoteException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
-public int add(int x,int y){return x+y;}
-
-}
-

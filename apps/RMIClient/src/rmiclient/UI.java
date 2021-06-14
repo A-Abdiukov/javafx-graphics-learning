@@ -120,27 +120,38 @@ public class UI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        //subtraction
-        int output = Integer.parseInt(jTextField1.getText()) - Integer.parseInt(jTextField2.getText());// jTextField2.getText();
-        jTextArea1.setText(String.valueOf(output));
+//subtraction
+        int num1 = Integer.parseInt(jTextField1.getText());
+        int num2 = Integer.parseInt(jTextField2.getText());
+
+        //  jTextArea1.setText(String.valueOf(output));
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         //addition
-        int output = Integer.parseInt(jTextField1.getText()) + Integer.parseInt(jTextField2.getText());// jTextField2.getText();
-        jTextArea1.setText(String.valueOf(output));
+        int num1 = Integer.parseInt(jTextField1.getText());
+        int num2 = Integer.parseInt(jTextField2.getText());
+
+        //       jTextArea1.setText(String.valueOf(output));
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         //mutiplication
-        int output = Integer.parseInt(jTextField1.getText()) * Integer.parseInt(jTextField2.getText());// jTextField2.getText();
-        jTextArea1.setText(String.valueOf(output));
+        int num1 = Integer.parseInt(jTextField1.getText());
+        int num2 = Integer.parseInt(jTextField2.getText());
+
+        //   int output = Integer.parseInt(jTextField1.getText()) * Integer.parseInt(jTextField2.getText());// jTextField2.getText();
+        //  jTextArea1.setText(String.valueOf(output));
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         //division
-        int output = Integer.parseInt(jTextField1.getText()) / Integer.parseInt(jTextField2.getText());// jTextField2.getText();
-        jTextArea1.setText(String.valueOf(output));
+
+        int num1 = Integer.parseInt(jTextField1.getText());
+        int num2 = Integer.parseInt(jTextField2.getText());
+
+        //  int output = Integer.parseInt(jTextField1.getText()) / Integer.parseInt(jTextField2.getText());// jTextField2.getText();
+        //  jTextArea1.setText(String.valueOf(output));
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed

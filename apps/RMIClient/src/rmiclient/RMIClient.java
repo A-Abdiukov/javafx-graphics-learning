@@ -24,4 +24,15 @@ public class RMIClient {
         return stub.add(numberOne, numberTwo);
     }
 
+    public static int Subtract(int numberOne, int numberTwo) throws RemoteException {
+        return stub.subtract(numberOne, numberTwo);
+    }
+
+    public static int Multiply(int numberOne, int numberTwo) throws RemoteException {
+        return stub.multiply(numberOne, numberTwo);
+    }
+
+    public static int Divide(int numberOne, int numberTwo) throws RemoteException {
+        return stub.divide(numberOne, numberTwo);
+    }
 }
