@@ -5,12 +5,15 @@ import java.util.List;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.DataFormat;
 import javafx.scene.input.DragEvent;
@@ -42,7 +45,7 @@ public class FxDragDropExample3 extends Application {
         // Create the Labels
         Label sourceListLbl = new Label("Not finished tasks : ");
         Label targetListLbl = new Label("Finished tasks : ");
-        Label messageLbl = new Label("To-do List");
+        Label messageLbl = new Label("");
 
         // Set the Size of the Views and the LoggingArea
         sourceView.setPrefSize(200, 200);
@@ -66,31 +69,57 @@ public class FxDragDropExample3 extends Application {
         pane.addRow(1, sourceListLbl, targetListLbl);
         pane.addRow(2, sourceView, targetView);
 
+        //Create delete button
+        Button removeItem = new Button("Delete selected item");
+        pane.addRow(5, removeItem);
+
+        //Remove item when button is clicked
+        removeItem.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                int selectedItem = sourceView.getSelectionModel().getSelectedIndex();
+                sourceView.getItems().remove(selectedItem);
+            }
+        });
+
+        //create textarea
+        TextField textarea_itemName = new TextField();
+        pane.addRow(7, textarea_itemName);
+
+        //create add button
+        Button addItem = new Button("Add new item");
+        pane.addRow(8, addItem);
+
+        //Add item when button is clicked
+        addItem.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Task taskToAdd = new Task(textarea_itemName.getText());
+                sourceView.getItems().addAll(taskToAdd);
+            }
+        });
+
         // Add mouse event handlers for the source
         sourceView.setOnDragDetected(new EventHandler<MouseEvent>() {
             public void handle(MouseEvent event) {
-                writelog("Event on Source: drag detected");
                 dragDetected(event, sourceView);
             }
         });
 
         sourceView.setOnDragOver(new EventHandler<DragEvent>() {
             public void handle(DragEvent event) {
-                writelog("Event on Source: drag over");
                 dragOver(event, sourceView);
             }
         });
 
         sourceView.setOnDragDropped(new EventHandler<DragEvent>() {
             public void handle(DragEvent event) {
-                writelog("Event on Source: drag dropped");
                 dragDropped(event, sourceView);
             }
         });
 
         sourceView.setOnDragDone(new EventHandler<DragEvent>() {
             public void handle(DragEvent event) {
-                writelog("Event on Source: drag done");
                 dragDone(event, sourceView);
             }
         });
@@ -98,28 +127,24 @@ public class FxDragDropExample3 extends Application {
         // Add mouse event handlers for the target
         targetView.setOnDragDetected(new EventHandler<MouseEvent>() {
             public void handle(MouseEvent event) {
-                writelog("Event on Target: drag detected");
                 dragDetected(event, targetView);
             }
         });
 
         targetView.setOnDragOver(new EventHandler<DragEvent>() {
             public void handle(DragEvent event) {
-                writelog("Event on Target: drag over");
                 dragOver(event, targetView);
             }
         });
 
         targetView.setOnDragDropped(new EventHandler<DragEvent>() {
             public void handle(DragEvent event) {
-                writelog("Event on Target: drag dropped");
                 dragDropped(event, targetView);
             }
         });
 
         targetView.setOnDragDone(new EventHandler<DragEvent>() {
             public void handle(DragEvent event) {
-                writelog("Event on Target: drag done");
                 dragDone(event, targetView);
             }
         });
@@ -151,14 +176,11 @@ public class FxDragDropExample3 extends Application {
     private ObservableList<Task> getTaskList() {
         ObservableList<Task> list = FXCollections.<Task>observableArrayList();
 
-        Task apple = new Task("Apple");
-        Task orange = new Task("Orange");
-        Task papaya = new Task("Papaya");
-        Task mango = new Task("Mango");
-        Task grape = new Task("Grape");
-        Task guava = new Task("Guava");
+        Task task1 = new Task("Finish homework");
+        Task task2 = new Task("Wash the dishes");
+        Task task3 = new Task("Play with kids");
 
-        list.addAll(apple, orange, papaya, mango, grape, guava);
+        list.addAll(task1, task2, task3);
 
         return list;
     }
@@ -250,8 +272,4 @@ public class FxDragDropExample3 extends Application {
         listView.getItems().removeAll(selectedList);
     }
 
-    // Helper Method for Logging
-    private void writelog(String text) {
-        this.loggingArea.appendText(text + "\n");
-    }
 }
