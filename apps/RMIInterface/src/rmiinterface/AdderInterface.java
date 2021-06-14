@@ -14,11 +14,11 @@ import java.rmi.RemoteException;
  */
 public interface AdderInterface extends Remote {
 
-    public int add(int x, int y) throws RemoteException;
+    public double add(double x, double y) throws RemoteException;
 
-    public int subtract(int x, int y) throws RemoteException;
+    public double subtract(double x, double y) throws RemoteException;
 
-    public int multiply(int x, int y) throws RemoteException;
+    public double multiply(double x, double y) throws RemoteException;
 
-    public int divide(int x, int y) throws RemoteException;
+    public double divide(double x, double y) throws RemoteException;
 }
