@@ -9,11 +9,8 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="DragAndDropProjects.jar" size="32653" download="eager" />
+    <jar href="DragAndDropProjects.jar" size="12235" download="eager" />
   </resources>
-  <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="DragAndDropProjects" >
-    <param name="requiredFXVersion" value="8.0+"/>
-  </applet-desc>
-  <jfx:javafx-desc  width="800" height="600" main-class="hellodraganddrop.HelloDragAndDrop"  name="DragAndDropProjects" />
+  <jfx:javafx-desc  width="800" height="600" main-class="DragAndDropExample.FxDragDropExample3"  name="DragAndDropProjects" />
   <update check="always"/>
 </jnlp>
