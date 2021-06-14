@@ -3,8 +3,8 @@ package guichatapplication;
 public class GUIChatApplication {
 
     public static void main(String[] args) {
-        Chat_Client client = new Chat_Client();
-        client.setVisible(true);
+        Chat_Server server = new Chat_Server();
+        server.setVisible(true);
     }
 
 }
